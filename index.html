@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Valentine's Day!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f8b7cd",
+              secondary: "#c8e7f5",
+            },
+            animation: {
+              "fade-in": "fadeIn 0.8s ease-out forwards",
+              float: "float 3s ease-in-out infinite",
+              heartbeat: "heartbeat 1.5s infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(20px) scale(0.95)",
+                },
+                "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              heartbeat: {
+                "0%, 100%": { transform: "scale(1)" },
+                "14%": { transform: "scale(1.1)" },
+                "28%": { transform: "scale(1)" },
+                "42%": { transform: "scale(1.1)" },
+                "70%": { transform: "scale(1)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        overflow-y: auto;
+      }
+
+      .paragraph-item {
+        display: block;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary w-full font-sans relative">
+    <audio id="bgMusic" src="only-you.mp3"></audio>
+
+    <div
+      id="cover"
+      class="fixed inset-0 flex flex-col items-center justify-center bg-secondary transition-all duration-700 ease-in-out z-20"
+    >
+      <div
+        class="animate-heartbeat mb-8 cursor-pointer drop-shadow-2xl"
+        onclick="openCard()"
+      >
+        <svg
+          width="150"
+          height="150"
+          viewBox="0 0 24 24"
+          fill="#f8b7cd"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke="white"
+          stroke-width="0.5"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          />
+        </svg>
+      </div>
+      <button
+        onclick="openCard()"
+        class="px-8 py-3 bg-primary text-white text-lg font-bold rounded-full shadow-lg hover:bg-pink-400 hover:scale-105 transition-transform animate-bounce"
+      >
+        Buka 💌
+      </button>
+    </div>
+
+    <div
+      id="content"
+      class="hidden flex flex-col items-center justify-start bg-primary p-6 text-left z-10 transition-opacity duration-700 w-full pt-8"
+    >
+      <div
+        id="message"
+        class="bg-white/90 backdrop-blur-md p-10 rounded-[2rem] shadow-2xl max-w-2xl w-full opacity-0 border-4 border-secondary"
+      >
+        <h1 class="text-4xl font-extrabold text-pink-500 mb-6 animate-float">
+          Happy Valentine's Day, Gloria!
+        </h1>
+
+        <p class="text-lg text-gray-700 mb-8 font-medium leading-relaxed">
+          <span class="paragraph-item">Ayaaanggg 🤗🤗🤗</span>
+          <br />
+          <span class="paragraph-item"
+            >Di hari valentine inii, yang mau aku rayakan bersama kamu bukan
+            hari kasih sayang, karena rasa sayang aku ke kamu terus bertumbuh
+            setiap hari, gak nunggu valentine, gak nunggu kebaikan kamu, gak
+            nunggu apapun, tapi pure karena aku sayang sama kamuuu...</span
+          >
+
+          <br />
+          <span class="paragraph-item"
+            >jadi menurut aku yang lebih penting untuk dirayakan adalah
+            kesetiaan kita...</span
+          >
+
+          <br />
+          <span class="paragraph-item"
+            >aku seneng banget ditengah berbagai badai yg kita lewati even baru
+            4 bulanan,</span
+          >
+
+          <br />
+          <span class="paragraph-item"
+            >tapi kita bisa survive dan tetep bisa saling sayang, <br />saling
+            kompromi, <br />saling memaafkan, <br />saling mengerti satu sama
+            lain...</span
+          >
+
+          <br />
+          <span class="paragraph-item"
+            >sooo makasih ya sayaangg buat yang udah terjadi dari awal aku kenal
+            ayang sampai hari inii, aku berharap kita bisa terus sama2
+            kedepannya dan semakin memahami satu sama lain. Love you always
+            sayangkuu ❤️</span
+          >
+        </p>
+
+        <div class="flex justify-center space-x-6 mb-8">
+          <svg
+            class="w-8 h-8 text-secondary animate-pulse"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+          <svg
+            class="w-10 h-10 text-pink-400 animate-heartbeat"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+          <svg
+            class="w-8 h-8 text-secondary animate-pulse"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openCard() {
+        const cover = document.getElementById("cover");
+        const content = document.getElementById("content");
+        const message = document.getElementById("message");
+        const bgMusic = document.getElementById("bgMusic");
+
+        bgMusic.play();
+
+        cover.style.opacity = "0";
+        cover.style.transform = "scale(1.1)";
+
+        setTimeout(() => {
+          cover.classList.add("hidden");
+          content.classList.remove("hidden");
+          message.classList.add("animate-fade-in");
+        }, 600);
+      }
+    </script>
+  </body>
+</html>
