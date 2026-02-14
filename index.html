@@ -47,9 +47,11 @@
         overflow-y: auto;
       }
 
-      .paragraph-item {
-        display: block;
-        margin-bottom: 1rem;
+      .mute-button {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 30;
       }
     </style>
   </head>
@@ -98,42 +100,37 @@
           Happy Valentine's Day, Gloria!
         </h1>
 
+        <p class="text-lg text-gray-700 mb-4 font-medium leading-relaxed">
+          Ayaaanggg 🤗🤗🤗
+        </p>
+
+        <p class="text-lg text-gray-700 mb-4 font-medium leading-relaxed">
+          Di hari valentine inii, yang mau aku rayakan bersama kamu bukan hanya
+          hari kasih sayang, karena rasa sayang aku ke kamu terus bertumbuh
+          setiap hari, gak nunggu valentine, gak nunggu kebaikan kamu, gak
+          nunggu apapun, tapi pure karena aku sayang sama kamuuu...
+        </p>
+
+        <p class="text-lg text-gray-700 mb-4 font-medium leading-relaxed">
+          jadi menurut aku yang lebih penting untuk dirayakan adalah kesetiaan
+          kita...
+        </p>
+
+        <p class="text-lg text-gray-700 mb-4 font-medium leading-relaxed">
+          aku seneng banget ditengah berbagai badai yg kita lewati even baru 4
+          bulanan,
+        </p>
+
+        <p class="text-lg text-gray-700 mb-4 font-medium leading-relaxed">
+          tapi kita bisa survive dan tetep bisa saling sayang,
+          <br />saling kompromi, <br />saling memaafkan, <br />saling mengerti
+          satu sama lain...
+        </p>
+
         <p class="text-lg text-gray-700 mb-8 font-medium leading-relaxed">
-          <span class="paragraph-item">Ayaaanggg 🤗🤗🤗</span>
-          <br />
-          <span class="paragraph-item"
-            >Di hari valentine inii, yang mau aku rayakan bersama kamu bukan
-            hari kasih sayang, karena rasa sayang aku ke kamu terus bertumbuh
-            setiap hari, gak nunggu valentine, gak nunggu kebaikan kamu, gak
-            nunggu apapun, tapi pure karena aku sayang sama kamuuu...</span
-          >
-
-          <br />
-          <span class="paragraph-item"
-            >jadi menurut aku yang lebih penting untuk dirayakan adalah
-            kesetiaan kita...</span
-          >
-
-          <br />
-          <span class="paragraph-item"
-            >aku seneng banget ditengah berbagai badai yg kita lewati even baru
-            4 bulanan,</span
-          >
-
-          <br />
-          <span class="paragraph-item"
-            >tapi kita bisa survive dan tetep bisa saling sayang, <br />saling
-            kompromi, <br />saling memaafkan, <br />saling mengerti satu sama
-            lain...</span
-          >
-
-          <br />
-          <span class="paragraph-item"
-            >sooo makasih ya sayaangg buat yang udah terjadi dari awal aku kenal
-            ayang sampai hari inii, aku berharap kita bisa terus sama2
-            kedepannya dan semakin memahami satu sama lain. Love you always
-            sayangkuu ❤️</span
-          >
+          sooo makasih ya sayaangg buat yang udah terjadi dari awal aku kenal
+          ayang sampai hari inii, aku berharap kita bisa terus sama2 kedepannya
+          dan semakin memahami satu sama lain. Love you always sayangkuu ❤️
         </p>
 
         <div class="flex justify-center space-x-6 mb-8">
@@ -168,7 +165,17 @@
       </div>
     </div>
 
+    <button
+      id="muteBtn"
+      onclick="toggleMute()"
+      class="mute-button px-4 py-2 bg-primary text-white text-2xl rounded-full shadow-lg hover:bg-pink-400 hover:scale-110 transition-transform"
+    >
+      🔊
+    </button>
+
     <script>
+      let isMuted = false;
+
       function openCard() {
         const cover = document.getElementById("cover");
         const content = document.getElementById("content");
@@ -185,6 +192,21 @@
           content.classList.remove("hidden");
           message.classList.add("animate-fade-in");
         }, 600);
+      }
+
+      function toggleMute() {
+        const bgMusic = document.getElementById("bgMusic");
+        const muteBtn = document.getElementById("muteBtn");
+
+        if (isMuted) {
+          bgMusic.play();
+          isMuted = false;
+          muteBtn.innerHTML = "🔊";
+        } else {
+          bgMusic.pause();
+          isMuted = true;
+          muteBtn.innerHTML = "🔇";
+        }
       }
     </script>
   </body>
